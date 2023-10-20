@@ -1,5 +1,7 @@
 
 import flatpickr from "flatpickr";
+// all modules
+import Notiflix from 'notiflix';
 import "flatpickr/dist/flatpickr.min.css";
 
 const body = document.querySelector('body');
@@ -41,7 +43,8 @@ const options = {
   onClose(selectedDates) {
       let diff = selectedDates[0] - new Date();
       if (diff < 0) {
-          return window.alert('Please choose a date in the future');
+          return Notiflix.Notify.failure('Please choose a date in the future');
+        //   return window.alert('Please choose a date in the future');
       } else { return start.disabled = false}
   },
 };
@@ -59,7 +62,6 @@ function handleCountdown() {
             timer.hours.textContent = addLeadingZero(hours);
             timer.minutes.textContent = addLeadingZero(minutes);
             timer.seconds.textContent = addLeadingZero(seconds);
-            console.log(typeof days);
         }
     }, 1000);
 };
