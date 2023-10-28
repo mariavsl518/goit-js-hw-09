@@ -11,7 +11,7 @@ function handleSubmit(evt) {
   const step = Number(form.step.value);
   const amount = Number(form.amount.value);
 
-    for (i = 1; i <= amount; i += 1) {
+    for (let i = 1; i <= amount; i += 1) {
       const position = i;
       createPromise(position, delay)
       delay += step;
