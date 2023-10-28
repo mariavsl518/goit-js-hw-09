@@ -1,7 +1,7 @@
 
 import flatpickr from "flatpickr";
 // all modules
-import Notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import "flatpickr/dist/flatpickr.min.css";
 
 const body = document.querySelector('body');
@@ -43,7 +43,7 @@ const options = {
   onClose(selectedDates) {
       let diff = selectedDates[0] - new Date();
       if (diff < 0) {
-          return Notiflix.Notify.failure('Please choose a date in the future');
+          return Notify.failure('Please choose a date in the future');
         //   return window.alert('Please choose a date in the future');
       } else { return start.disabled = false}
   },
